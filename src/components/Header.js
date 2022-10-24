@@ -1,10 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import navlogo from '../assets/nav-logo.jpg';
 import { CgDarkMode } from 'react-icons/cg';
+import { AuthContext } from '../context/AuthProvider';
 
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(() => {
+            navigate('/login')
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
+
+
     return (
             <div className="navbar bg-gray-400">
                 <div className="navbar-start">
@@ -14,10 +31,11 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="bg-gray-400 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
-                        <li><Link>Home</Link></li>
+                        <li><Link to='/'>Home</Link></li>
                         <li><Link>Courses</Link></li>
                         <li><Link>Blog</Link></li>
                         <li><Link>FAQ</Link></li>
+                        <li><Link to='/signup'>Signup</Link></li>
 
                     </ul>
                     </div>
@@ -28,16 +46,38 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="bg-gray-400 menu menu-horizontal p-0">
 
-                    <li><Link>Home</Link></li>
+                    <li><Link to='/'>Home</Link></li>
                     <li><Link>Courses</Link></li>
                     <li><Link>Blog</Link></li>
                     <li><Link>FAQ</Link></li>
+                    <li><Link to='/signup'>Signup</Link></li>
+
 
                     </ul>
                 </div>
                 <div className="navbar-end flex mr-4 align-center">
-                    <Link className='hover:bg-zinc-500 hover:text-white p-3 rounded-md'>Login</Link>
-                    <div className='ml-4'><Link><CgDarkMode></CgDarkMode></Link></div>
+
+                <>
+                {
+                    user?.uid ?
+                    <>
+                        <Link onClick={handleLogOut} className='hover:bg-zinc-500 hover:text-white p-3 rounded-md'>Logout</Link> 
+                    </>
+                    :
+                    <>
+                        <Link to='/login' className='hover:bg-zinc-500 hover:text-white p-3 rounded-md'>Login</Link>                    
+                    </>
+                }
+                </>
+                    <div className='mr-4'><Link><CgDarkMode></CgDarkMode></Link></div>
+                    <div>
+                        {
+                            user?.uid && <div className='flex align-center'>
+                            <p className='my-auto'>{user.displayName}</p>
+                            <img className='rounded-full h-8 w-8 ml-2' src={user?.photoURL} alt="" />
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
     );
