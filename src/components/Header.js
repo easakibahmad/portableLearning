@@ -23,7 +23,7 @@ const Navbar = () => {
 
 
     return (
-            <div className="navbar bg-gray-400">
+            <div className="navbar bg-gray-400 py-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,24 +32,24 @@ const Navbar = () => {
                     <ul tabIndex={0} className="bg-gray-400 menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link>Courses</Link></li>
-                        <li><Link>Blog</Link></li>
-                        <li><Link>FAQ</Link></li>
+                        <li><Link to='/courses'>Courses</Link></li>
+                        <li><Link to='/blog'>Blog</Link></li>
+                        <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/signup'>Signup</Link></li>
 
                     </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl">
                      <img className='h-8 w-8 mr-2 rounded-full' src={navlogo} alt="" />
-                     PORTABLE LEARNING</Link>
+                     <span className='sm:h-6'>PORTABLE LEARNING</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="bg-gray-400 menu menu-horizontal p-0">
 
                     <li><Link to='/'>Home</Link></li>
-                    <li><Link>Courses</Link></li>
-                    <li><Link>Blog</Link></li>
-                    <li><Link>FAQ</Link></li>
+                    <li><Link to='/courses'>Courses</Link></li>
+                    <li><Link to='/blog'>Blog</Link></li>
+                    <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/signup'>Signup</Link></li>
 
 
@@ -73,8 +73,9 @@ const Navbar = () => {
                     <div>
                         {
                             user?.uid && <div className='flex align-center'>
-                            <p className='my-auto'>{user.displayName}</p>
+                            <div data-tip={user?.displayName} className='tooltip'>
                             <img className='rounded-full h-8 w-8 ml-2' src={user?.photoURL} alt="" />
+                            </div>
                             </div>
                         }
                     </div>
