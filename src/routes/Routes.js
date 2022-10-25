@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog";
-import CourseDetail from "../components/CourseDetail";
 import Courses from "../components/Courses";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Home from "../components/Home";
+import IndividualCourseDetails from "../components/IndividualCourseDetails";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import Layout from "../layout/Layout";
@@ -32,7 +32,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <CourseDetail></CourseDetail>
+                element:<IndividualCourseDetails></IndividualCourseDetails>,
+                loader: ({params})=>fetch(`https://protable-learning-server.vercel.app/courseTypes/${params.id}`)
             },
             {
                 path: '/login',

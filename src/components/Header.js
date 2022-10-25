@@ -53,7 +53,7 @@ const Navbar = () => {
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl">
                      <img className='h-8 w-8 mr-2 rounded-full' src={navlogo} alt="" />
-                     <span className='sm:h-6'>PORTABLE LEARNING</span></Link>
+                     <span className='sm:h-6 lg:text-xl text-sm'>PORTABLE LEARNING</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="bg-gray-400 menu menu-horizontal p-0">
@@ -83,7 +83,7 @@ const Navbar = () => {
                 {
                     user?.uid ?
                     <>
-                        <Link onClick={handleLogOut} className='hover:bg-zinc-500 hover:text-white lg:p-3 p-1 rounded-md'>Logout</Link> 
+                        <Link onClick={handleLogOut} className='hover:bg-zinc-500 hover:text-white lg:p-3 p-1 lg:text-base text-sm rounded-md'>Logout</Link> 
                     </>
                     :
                     <>
@@ -91,12 +91,12 @@ const Navbar = () => {
                     </>
                 }
                 </>
-                    <div className='lg:mr-4 mr-1'><Link><CgDarkMode></CgDarkMode></Link></div>
+                    <div className='mx-4'><Link><CgDarkMode></CgDarkMode></Link></div>
                     <div>
                         {
                             user?.uid && <div className='flex align-center'>
                             <div data-tip={user?.displayName} className='tooltip'>
-                            <img className='rounded-full h-8 w-8 lg:ml-2 ml-1' src={user?.photoURL} alt="" />
+                            <img className='rounded-full h-8 w-8 ml-2 ' src={user?.photoURL} alt="" />
                             </div>
                             </div>
                         }
