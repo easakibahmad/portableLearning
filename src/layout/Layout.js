@@ -11,7 +11,7 @@ const Layout = () => {
                 <Header></Header>
             </div>
             <div className='lg:grid lg:grid-cols-4'>
-                <div className='lg:col-span-1'>
+                <div className='lg:col-span-1 sharedLeftSide'>
                     <SharedLeftSide></SharedLeftSide>
                 </div>
                 <div className='lg:col-span-3'>

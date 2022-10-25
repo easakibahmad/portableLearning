@@ -19,7 +19,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                loader: ()=>fetch('https://protable-learning-server.vercel.app/courses')
             },
             {
                 path: '/blog',
