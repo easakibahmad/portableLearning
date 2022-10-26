@@ -4,8 +4,7 @@ PORTABLE LEARNING
 
 # Live Website Link
 
-https://quizz-for-expertise-e9f3e2.netlify.app/
-
+https://portable-learning.web.app/
 # Creating some route
 
 I included react router dom by installing.
@@ -14,11 +13,8 @@ Also I created dynamic route by using react router
 
 # Data loaded from api
 
-I have loaded data by loader and used useLoaderData to show it correspondingly
+I have loaded data from portable learning server site by loader and used useLoaderData to show it correspondingly.
 
-# ReChart used
-
-I used rechart to show statistics of quizzes
 
 # Blog page
 
@@ -26,8 +22,14 @@ Here I simply answered some questions
 
 # Home page
 
-Here all the main work added, and I created some dynamic route to go quizzes page dynamically
+Here I showed introductory info of my site. I created some dynamic route to go corresponding page dynamically
 
-# Toast used
+# Firebase used
 
-It builded to show corresponding data by clicking eye button and also quiz options
+It builded to authenticate my site users, I have made some different ways to authenticate my site users. Also I hosted my site in firebase.
+
+# Tailwind and DaisyUI used
+I fill comfortable with tailwind css, so that my first choice is tailwind and its framework.
+
+# react pdf used
+I have used react to pdf by installing. Its too much useful for download pdf files easily.
