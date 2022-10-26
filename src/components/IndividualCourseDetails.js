@@ -25,7 +25,7 @@ const IndividualCourseDetails = () => {
     const download = `download ${courseName} file now`
     return (
         
-            <div className='mt-12 pb-12 shadow-xl'>
+            <div className='pt-12 pb-12 shadow-xl'>
                 <div className="flex justify-around items-center px-8 py-12" >
                 <div className='font-bold pr-2'>
                    <span className='text-xl pr-2'>Welcome to the best course</span> <span className='lg:text-4xl text-2xl text-yellow-700'>{courseName}</span> 

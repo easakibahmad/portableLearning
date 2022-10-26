@@ -7,9 +7,9 @@ const Home = () => {
     const {user} = useContext(AuthContext)
     
     return (
-                <div>
+                <div className='shadow-xl py-16'>
                         <div>
-                            <p className='text-center font-bold mt-16 text-xl lg:text-3xl text-rose-900'>Explore your best courses</p>
+                            <p className='text-center font-bold text-xl lg:text-3xl text-rose-900'>Explore your best courses</p>
                         </div>
                             <div className="carousel w-3/4 rounded-xl mx-auto my-16 h-96 shadow-xl">
                         <div id="slide1" className="carousel-item relative w-full backdrop-brightness-50 bg-white/30">

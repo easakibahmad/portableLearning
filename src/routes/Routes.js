@@ -6,6 +6,7 @@ import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 import Home from "../components/Home";
 import IndividualCourseDetails from "../components/IndividualCourseDetails";
 import Login from "../components/Login";
+import NotFoundRoute from "../components/NotFoundRoute";
 import Signup from "../components/Signup";
 import Layout from "../layout/Layout";
 
@@ -49,5 +50,7 @@ export const router = createBrowserRouter([
                 element: <Signup></Signup>
             }
         ]
-    }
+    },
+    {path: '*', element: <NotFoundRoute></NotFoundRoute>}
+
 ])

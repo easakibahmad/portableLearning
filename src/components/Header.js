@@ -91,10 +91,11 @@ const Navbar = () => {
                     </>
                 }
                 </>
-                    <div className='mx-4'><Link><CgDarkMode></CgDarkMode></Link></div>
+                    <div data-tip="change theme" className='tooltip mx-4'><Link><CgDarkMode></CgDarkMode></Link></div>
                     <div>
                         {
-                            user?.uid && <div className='flex align-center'>
+                            user?.uid &&
+                            <div className='flex align-center'>
                             <div data-tip={user?.displayName} className='tooltip'>
                             <img className='rounded-full h-8 w-8 ml-2 ' src={user?.photoURL} alt="" />
                             </div>

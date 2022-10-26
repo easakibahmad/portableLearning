@@ -80,7 +80,7 @@ const Signup = () => {
 
 
     return (
-        <div className="hero py-4 bg-gray-400 my-16">
+        <div className="hero py-4  my-16">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                 <p className="text-3xl text-rose-900 font-bold">Sign Up</p>
