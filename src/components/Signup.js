@@ -80,10 +80,10 @@ const Signup = () => {
 
 
     return (
-        <div className="hero py-4 bg-zinc-700">
+        <div className="hero py-4 bg-gray-400 my-16">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                <p className="text-3xl text-success font-bold">Sign Up</p>
+                <p className="text-3xl text-rose-900 font-bold">Sign Up</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form onSubmit={handleSubmit} className="card-body bg-gray-400">
@@ -117,7 +117,7 @@ const Signup = () => {
                     <p className='text-red-700'><small>{error}</small></p>
 
                     <div className="form-control mt-6">
-                    <button className="btn btn-success">Signup</button>
+                    <button className="btn btn-success text-rose-900">Signup</button>
                     </div>
 
                     <button onClick={handlePopUpSignIn} className="mt-2 btn btn-outline btn-secondary  mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>

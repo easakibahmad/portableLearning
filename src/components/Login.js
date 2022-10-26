@@ -57,10 +57,10 @@ const Login = () => {
                 }
 
     return (
-            <div className="hero py-4 bg-zinc-700">
+            <div className="hero py-4 bg-gray-400 my-16">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
-                    <p className="text-3xl text-success font-bold">Log In</p>
+                    <p className="text-3xl text-rose-900 font-bold">Log In</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body bg-gray-400">
@@ -82,7 +82,7 @@ const Login = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                        <button className="btn btn-success">Login</button>
+                        <button className="btn btn-success text-rose-900">Login</button>
                         </div>
 
 

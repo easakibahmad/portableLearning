@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
     return (
-            <div className="navbar bg-gray-400 py-6 shadow-xl sticky top-0">
+            <div className="navbar bg-gray-400 py-6 shadow-xl">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,7 +44,6 @@ const Navbar = () => {
                         </li>
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
-                        <li><Link to='/checkout'>Your Courses</Link></li>
                         {
                             !user?.uid && <li><Link to='/signup'>Signup</Link></li>
                         }
@@ -71,7 +70,6 @@ const Navbar = () => {
                     </li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/faq'>FAQ</Link></li>
-                    <li><Link to='/checkout'>Your Courses</Link></li>
                     {
                         !user?.uid && <li><Link to='/signup'>Signup</Link></li>
                     }
