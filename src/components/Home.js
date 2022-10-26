@@ -14,7 +14,7 @@ const Home = () => {
                     <a href="#slide6" className="btn btn-circle">❮</a> 
                     {
                         user?.uid ?
-                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome back</small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
+                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome </small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
                         :
                         <Link to='/signup'><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary">Signup Now</button></Link>
                     }
@@ -27,7 +27,7 @@ const Home = () => {
                     <a href="#slide1" className="btn btn-circle">❮</a> 
                     {
                         user?.uid ?
-                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome back</small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
+                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome </small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
                         :
                         <Link to='/signup'><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary">Signup Now</button></Link>
                     }
@@ -40,7 +40,7 @@ const Home = () => {
                     <a href="#slide2" className="btn btn-circle">❮</a>
                     {
                         user?.uid ?
-                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome back</small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
+                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome </small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
                         :
                         <Link to='/signup'><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary">Signup Now</button></Link>
                     } 
@@ -53,7 +53,7 @@ const Home = () => {
                     <a href="#slide3" className="btn btn-circle">❮</a> 
                     {
                         user?.uid ?
-                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome back</small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
+                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome </small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
                         :
                         <Link to='/signup'><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary">Signup Now</button></Link>
                     }
@@ -66,7 +66,7 @@ const Home = () => {
                     <a href="#slide4" className="btn btn-circle">❮</a> 
                     {
                         user?.uid ?
-                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome back</small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
+                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome </small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
                         :
                         <Link to='/signup'><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary">Signup Now</button></Link>
                     }
@@ -79,7 +79,7 @@ const Home = () => {
                     <a href="#slide5" className="btn btn-circle">❮</a> 
                     {
                         user?.uid ?
-                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome back</small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
+                        <Link><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary"><small>Welcome </small> <span className='text-xl hover:text-black text-white px-2'>{user?.displayName}</span></button></Link>
                         :
                         <Link to='/signup'><button className="bg-black hover:btn-warning text-pink-600 btn btn-secondary">Signup Now</button></Link>
                     }

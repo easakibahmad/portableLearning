@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -10,6 +10,11 @@ const Signup = () => {
             const [error, setError] = useState()
 
             const googleProvider = new GoogleAuthProvider()
+
+            const location = useLocation()
+            const from = location.state?.from?.pathname || '/'
+        
+            const navigate = useNavigate()
 
             const {createUser, updateUserProfile, googlePopupSignIn} = useContext(AuthContext)
 
@@ -53,6 +58,7 @@ const Signup = () => {
                     setError('')
                     form.reset()
                     handleProfileInfo(name, photoURL)
+                    navigate(from, {replace: true})
                 })
                 .catch(error=>{
                     console.log(error)
@@ -65,6 +71,7 @@ const Signup = () => {
                 .then(result=> {
                     const user = result.user
                     console.log(user)
+                    navigate(from, {replace: true})
                 })
                 .catch(error=>{
                     console.log(error)
