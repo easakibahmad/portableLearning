@@ -1,5 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, Link } from 'react-router-dom';
+import { FaFileDownload } from 'react-icons/fa';
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const IndividualCourseDetails = () => {
 
@@ -16,13 +20,26 @@ const IndividualCourseDetails = () => {
            totalStudents
             } = individualData
     console.log(individualData)
+
+    const download = `download ${courseName} file now`
     return (
-            <div className='my-12'>
+        
+            <div className='mt-12 pb-12 shadow-xl'>
+                <div className="flex justify-around items-center px-8 py-12" >
+                <div className='font-bold pr-2'>
+                   <span className='text-xl pr-2'>Welcome to the best course</span> <span className='lg:text-4xl text-2xl text-yellow-700'>{courseName}</span> 
+                </div>
+                <Pdf targetRef={ref} filename={courseName}>
+                     {({ toPdf }) => <Link onClick={toPdf}><span className='tooltip text-red-700' data-tip={download}><FaFileDownload></FaFileDownload></span></Link>}
+                  </Pdf>
+                </div>
+                  
+                <div ref={ref}>
                 <div className="hero ">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col  lg:flex-row-reverse">
                     <img src={coursePhotoURL} className="max-w-sm rounded-lg shadow-2xl" alt=''/>
                     <div>
-                    <h1 className="lg:text-4xl text-3xl font-bold text-rose-900">{courseName}</h1>
+                    <h1 className="lg:text-2xl text-3xl font-bold text-rose-900">{courseName}</h1>
                     <div className='flex lg:justify-start justify-center mt-6'>
                     <div className="mr-4 badge badge-outline"><span className='text-xl text-pink-500 font-bold'>{currentPrice} $</span></div> 
                     <div className="badge badge-outline"><span className='text-2xl line-through font-bold text-pink-700'>{previousPrice} </span><span className='text-2xl text-pink-700 pl-1 font-bold'> $</span></div>
@@ -43,7 +60,7 @@ const IndividualCourseDetails = () => {
                     <div className='col-span-1'>
                         <p className='text-sm text-rose-900 font-bold'>About our course:</p>
                     </div>
-                        <div className='col-span-4'>
+                        <div className='col-span-4 lg:pr-16'>
                             <p className='lg:text-base text-sm'>{courseDetails}</p>
                         </div>
                 </div>
@@ -67,9 +84,10 @@ const IndividualCourseDetails = () => {
                     <p className='text-sm text-rose-900 font-bold'>Students feedback:</p>
                     </div>
                     <div className='col-span-3'>
-                        <div className='lg:text-base text-sm'>"{studentFeedback}"</div>
+                        <div className='lg:text-base text-sm lg:px-6'>"{studentFeedback}"</div>
                         <div className='text-center'>~{students}</div>
                     </div>
+                </div>
                 </div>
             </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FrequeltyAskedQuestions = () => {
+const FrequentlyAskedQuestions = () => {
     return (
         <div>
             this is faq
@@ -8,4 +8,4 @@ const FrequeltyAskedQuestions = () => {
     );
 };
 
-export default FrequeltyAskedQuestions;
+export default FrequentlyAskedQuestions;

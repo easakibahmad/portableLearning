@@ -7,7 +7,7 @@ const Home = () => {
     const {user} = useContext(AuthContext)
     
     return (
-                <div className="carousel w-full h-96 border-zinc-700 border-l-2">
+                <div className="carousel w-full h-96 shadow-xl">
                 <div id="slide1" className="carousel-item relative w-full backdrop-brightness-50 bg-white/30">
                     <img src="https://m.economictimes.com/thumb/msid-92062293,width-1200,height-900,resizemode-4,imgsize-57232/from-diagnosis-to-treatment-from-prevention-to-therapeutics-artificial-intelligence-has-made-many-things-possible-which-had-been-absolutely-unachievable-before-.jpg" className="w-full" alt=''/>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
