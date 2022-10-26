@@ -44,6 +44,7 @@ const Navbar = () => {
                         </li>
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
+                        <li><Link to='/checkout'>Your Courses</Link></li>
                         {
                             !user?.uid && <li><Link to='/signup'>Signup</Link></li>
                         }
@@ -70,6 +71,7 @@ const Navbar = () => {
                     </li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/faq'>FAQ</Link></li>
+                    <li><Link to='/checkout'>Your Courses</Link></li>
                     {
                         !user?.uid && <li><Link to='/signup'>Signup</Link></li>
                     }

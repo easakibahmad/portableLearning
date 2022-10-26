@@ -21,6 +21,7 @@ const IndividualCourseDetails = () => {
             } = individualData
     console.log(individualData)
 
+
     const download = `download ${courseName} file now`
     return (
         
@@ -88,6 +89,11 @@ const IndividualCourseDetails = () => {
                         <div className='text-center'>~{students}</div>
                     </div>
                 </div>
+                </div>
+                <div className='flex justify-center mt-16'>
+                    <Link to='/checkout'>
+                        <button className="btn btn-wide btn-success hover:bg-warning text-black">Get premium access?</button>
+                    </Link>
                 </div>
             </div>
     );
