@@ -10,6 +10,14 @@ const auth = getAuth(app)
 const AuthProvider = ({children}) => {
 
 
+    //theme toggler started
+    const [theme, setTheme] = useState("light");
+
+    const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+    };
+    //theme toggler ended
+
     const [user, setUser] =useState(null)
 
     const [loading, setLoading] = useState(true)
@@ -46,7 +54,7 @@ const AuthProvider = ({children}) => {
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser=>{
-            console.log(currentUser)
+            // console.log(currentUser)
             setUser(currentUser)
             setLoading(false)
         })
@@ -63,7 +71,9 @@ const AuthProvider = ({children}) => {
         logIn, 
         logOut,
         createUser,
-        githubPopupSignIn
+        githubPopupSignIn,
+        themeToggler,
+        theme
     }
 
 
