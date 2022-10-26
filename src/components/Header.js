@@ -51,7 +51,7 @@ const Navbar = () => {
 
                     </ul>
                     </div>
-                    <Link className="btn btn-ghost normal-case text-xl">
+                    <Link className="btn btn-ghost normal-case">
                      <img className='h-8 w-8 mr-2 rounded-full' src={navlogo} alt="" />
                      <span className='sm:h-6 lg:text-xl text-sm'>PORTABLE LEARNING</span></Link>
                 </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
                 }
                 </>
                     <div data-tip="change theme" className='tooltip mx-4'><Link><CgDarkMode></CgDarkMode></Link></div>
-                    <div>
+                    <div className='profile-div'>
                         {
                             user?.uid &&
                             <div className='flex align-center'>

@@ -38,9 +38,9 @@ const IndividualCourseDetails = () => {
                 <div ref={ref}>
                 <div className="hero ">
                 <div className="hero-content flex-col  lg:flex-row-reverse">
-                    <img src={coursePhotoURL} className="max-w-sm rounded-lg shadow-2xl" alt=''/>
+                    <img src={coursePhotoURL} className="w-72 lg:w-60 h-52 rounded-lg shadow-2xl" alt=''/>
                     <div>
-                    <h1 className="lg:text-2xl text-3xl font-bold text-rose-900">{courseName}</h1>
+                    <h1 className="lg:text-2xl text-xl font-bold text-rose-900">{courseName}</h1>
                     <div className='flex lg:justify-start justify-center mt-6'>
                     <div className="mr-4 badge badge-outline"><span className='text-xl text-pink-500 font-bold'>{currentPrice} $</span></div> 
                     <div className="badge badge-outline"><span className='text-2xl line-through font-bold text-pink-700'>{previousPrice} </span><span className='text-2xl text-pink-700 pl-1 font-bold'> $</span></div>

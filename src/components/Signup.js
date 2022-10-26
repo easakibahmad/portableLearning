@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 
@@ -80,7 +80,7 @@ const Signup = () => {
 
 
     return (
-        <div className="hero py-4  my-16">
+        <div className="hero py-4 shadow-xl">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                 <p className="text-3xl text-rose-900 font-bold">Sign Up</p>
@@ -121,6 +121,8 @@ const Signup = () => {
                     </div>
 
                     <button onClick={handlePopUpSignIn} className="mt-2 btn btn-outline btn-secondary  mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
+
+                    <button onClick={handlePopUpSignIn} className="mt-2 btn btn-outline btn-primary  mb-3 bg-grey-400"><FaGithub></FaGithub><span className='ml-2'>Github Sign In</span></button>
 
                     <p><small><span className='pr-2 font-bold'>Already have an account?</span><Link to='/login' className='text-pink-500 font-bold'>log in now</Link></small></p>
                 </form>

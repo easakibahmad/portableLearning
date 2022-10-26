@@ -39,6 +39,11 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider)
     }
 
+    const githubPopupSignIn = (provider)=>{
+        setLoading(true)
+        return signInWithPopup(auth, provider)
+    }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser=>{
             console.log(currentUser)
@@ -57,7 +62,8 @@ const AuthProvider = ({children}) => {
         loading, 
         logIn, 
         logOut,
-        createUser
+        createUser,
+        githubPopupSignIn
     }
 
 

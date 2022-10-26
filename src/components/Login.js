@@ -1,17 +1,19 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 
 const Login = () => {
 
-            const {logIn, setLoading, googlePopupSignIn} = useContext(AuthContext)
+            const {logIn, setLoading, googlePopupSignIn, githubPopupSignIn} = useContext(AuthContext)
 
             const [error, setError] = useState()
 
             const googleProvider = new GoogleAuthProvider()
+
+            const githubProvider = new GithubAuthProvider()
 
             const location = useLocation()
             const from = location.state?.from?.pathname || '/'
@@ -44,7 +46,7 @@ const Login = () => {
                     })
                 }
 
-                const handlePopUpSignIn = () =>{
+                const handlePopUpSignInGoogle = () =>{
                     googlePopupSignIn(googleProvider)
                     .then(result=> {
                         const user = result.user
@@ -56,8 +58,20 @@ const Login = () => {
                     })
                 }
 
+                const handlePopUpSignInGitHub = () =>{
+                    githubPopupSignIn(githubProvider)
+                    .then(result=> {
+                        const user = result.user
+                        console.log(user)
+                        navigate(from, {replace: true})
+                    })
+                    .catch(error=>{
+                        console.log(error)
+                    })
+                }
+
     return (
-            <div className="hero py-4 my-16">
+            <div className="hero py-4 shadow-xl">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                     <p className="text-3xl text-rose-900 font-bold">Log In</p>
@@ -86,7 +100,9 @@ const Login = () => {
                         </div>
 
 
-                        <button onClick={handlePopUpSignIn} className="mt-2 btn btn-outline btn-secondary  mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
+                        <button onClick={handlePopUpSignInGoogle} className="mt-2 btn btn-outline btn-secondary  mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
+
+                        <button onClick={handlePopUpSignInGitHub} className="mt-2 btn btn-outline btn-primary  mb-3 bg-grey-400"><FaGithub></FaGithub><span className='ml-2'>Github Sign In</span></button>
 
 
                         <p><small>New to <span className='font-bold pr-2'>PORTABLE LEARNING? </span><Link to='/signup' className='text-pink-500 font-bold'>sign up now</Link></small></p>
