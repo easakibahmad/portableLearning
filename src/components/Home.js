@@ -9,7 +9,7 @@ const Home = () => {
     return (
                 <div className='lg:shadow-xl py-16'>
                         <div>
-                            <p className='text-center font-bold text-xl lg:text-3xl text-rose-900'>Explore your best courses</p>
+                            <p className='text-center font-bold text-xl lg:text-3xl text-rose-900 uppercase'>Explore your best courses</p>
                         </div>
                         {
                                 user?.uid ?

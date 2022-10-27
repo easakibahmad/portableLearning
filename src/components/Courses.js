@@ -7,7 +7,7 @@ const Courses = () => {
     const courses = useLoaderData()
     return (
         <div className='h-full lg:shadow-xl'>
-            <h1 className='w-3/4 mx-auto pt-16 text-xl text-center text-rose-900 font-bold'>Most reviewed courses are now more affordable</h1>
+            <h1 className='uppercase w-3/4 mx-auto pt-16 text-xl text-center text-rose-900 font-bold'>Most reviewed courses are now more affordable</h1>
 
             <div className='lg:grid lg:grid-cols-2'>
                 {
