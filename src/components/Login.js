@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import '../componentsStyle/Login.css'
 
 
 const Login = () => {
@@ -71,44 +72,51 @@ const Login = () => {
                 }
 
     return (
-            <div className="hero py-4 shadow-xl">
-                <div className="hero-content flex-col">
-                    <div className="text-center lg:text-left">
-                    <p className="text-3xl text-rose-900 font-bold">Log In</p>
-                    </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleSubmit} className="card-body bg-gray-400">
-                        <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
+            <div className=' pt-4 pb-12 shadow-xl'>
+            <div className="hero">
+                            <div className="hero-content flex-col">
+                                <div className="text-center lg:text-left">
+                                <p className="text-3xl text-rose-900 font-bold">Log In</p>
+                                </div>
+                                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                                <form onSubmit={handleSubmit} className="card-body bg-gray-400">
+                                    <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
+                                    </div>
+                                    <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
+                                    </div>
+
+                                    <div>
+                                        <small><p className="text-red-700">{error}</p></small>
+                                    </div>
+
+                                    <div className="form-control mt-6">
+                                    <button className="btn btn-success text-rose-900">Login</button>
+                                    </div>
+
+
+                                    <p><small>New to <span className='font-bold pr-2'>PORTABLE LEARNING? </span><Link to='/signup' className='text-pink-500 font-bold'>sign up now</Link></small></p>
+                                </form>
+                                </div>
+                            </div>
                         </div>
-                        <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
+
+
+                        <div className='flex justify-center'>
+                        <button onClick={handlePopUpSignInGoogle} className="mt-2 btn btn-outline btn-secondary buttonSign mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
                         </div>
 
-                        <div>
-                            <small><p className="text-red-700">{error}</p></small>
+                        <div className='flex justify-center'>
+                        <button onClick={handlePopUpSignInGitHub} className="mt-2 btn btn-outline btn-primary buttonSign mb-3 bg-grey-400"><FaGithub></FaGithub><span className='ml-2'>Github Sign In</span></button>
                         </div>
 
-                        <div className="form-control mt-6">
-                        <button className="btn btn-success text-rose-900">Login</button>
-                        </div>
-
-
-                        <button onClick={handlePopUpSignInGoogle} className="mt-2 btn btn-outline btn-secondary  mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
-
-                        <button onClick={handlePopUpSignInGitHub} className="mt-2 btn btn-outline btn-primary  mb-3 bg-grey-400"><FaGithub></FaGithub><span className='ml-2'>Github Sign In</span></button>
-
-
-                        <p><small>New to <span className='font-bold pr-2'>PORTABLE LEARNING? </span><Link to='/signup' className='text-pink-500 font-bold'>sign up now</Link></small></p>
-                    </form>
-                    </div>
-                </div>
             </div>
     );
 };

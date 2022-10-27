@@ -9,6 +9,7 @@ import Login from "../components/Login";
 import NotFoundRoute from "../components/NotFoundRoute";
 import Signup from "../components/Signup";
 import Layout from "../layout/Layout";
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -29,8 +30,10 @@ export const router = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: '/checkout',
-                element: <Checkout></Checkout>
+                path: '/checkout/:id',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+                loader: ({params})=>fetch(`https://protable-learning-server.vercel.app/checkOut/${params.id}`)
+
             },
             {
                 path: '/faq',

@@ -17,7 +17,8 @@ const IndividualCourseDetails = () => {
            instructor,
            studentFeedback,
            students,
-           totalStudents
+           totalStudents,
+           courseID
             } = individualData
     console.log(individualData)
 
@@ -72,7 +73,7 @@ const IndividualCourseDetails = () => {
                 </div>
                 <div className="card w-52 bg-black h-60 shadow-xl mx-auto col-span-4">
                 <figure className="px-10 pt-10">
-                    <img src={instructor.instructorPhotoURL} alt="Shoes" className="rounded-xl" />
+                    <img src={instructor?.instructorPhotoURL} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-rose-900 font-bold">{instructor.name}</h2>
@@ -91,7 +92,7 @@ const IndividualCourseDetails = () => {
                 </div>
                 </div>
                 <div className='flex justify-center mt-16'>
-                    <Link to='/checkout'>
+                    <Link to={`/checkout/${courseID}`}>
                         <button className="btn btn-wide btn-success hover:bg-warning text-black">Get premium access?</button>
                     </Link>
                 </div>

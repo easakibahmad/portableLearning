@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Signup = () => {
@@ -10,13 +10,14 @@ const Signup = () => {
             const [error, setError] = useState()
 
             const googleProvider = new GoogleAuthProvider()
+            const githubProvider = new GithubAuthProvider()
 
             const location = useLocation()
             const from = location.state?.from?.pathname || '/'
         
             const navigate = useNavigate()
 
-            const {createUser, updateUserProfile, googlePopupSignIn} = useContext(AuthContext)
+            const {createUser, updateUserProfile, googlePopupSignIn, githubPopupSignIn} = useContext(AuthContext)
 
             const handleSubmit = event => {
 
@@ -66,7 +67,7 @@ const Signup = () => {
                 })
             }
 
-            const handlePopUpSignIn = () =>{
+            const handlePopUpSignInGoogle = () =>{
                 googlePopupSignIn(googleProvider)
                 .then(result=> {
                     const user = result.user
@@ -79,56 +80,77 @@ const Signup = () => {
             }
 
 
+            const handlePopUpSignInGitHub = () =>{
+                githubPopupSignIn(githubProvider)
+                .then(result=> {
+                    const user = result.user
+                    console.log(user)
+                    navigate(from, {replace: true})
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+            }
+
+
     return (
-        <div className="hero py-4 shadow-xl">
-            <div className="hero-content flex-col">
-                <div className="text-center lg:text-left">
-                <p className="text-3xl text-rose-900 font-bold">Sign Up</p>
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form onSubmit={handleSubmit} className="card-body bg-gray-400">
-                                        
-                    <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Your Name</span>
-                    </label>
-                    <input type="text" name='name' placeholder="your name" className="input input-bordered" required/>
+        <div className=' pt-4 pb-12 shadow-xl'>
+            <div className="hero">
+                    <div className="hero-content flex-col">
+                        <div className="text-center lg:text-left">
+                            <p className="text-3xl text-rose-900 font-bold">Sign Up</p>
+                            </div>
+                            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <form onSubmit={handleSubmit} className="card-body bg-gray-400">
+                                                    
+                                <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Your Name</span>
+                                </label>
+                                <input type="text" name='name' placeholder="your name" className="input input-bordered" required/>
+                                </div>
+
+                                <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input name='photoURL' type="text" placeholder="photo url" className="input input-bordered" required/>
+                                </div>
+                                <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input name='email' type="email" placeholder="email" className="input input-bordered" required/>
+                                </div>
+                                <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input  name='password' type="password" placeholder="password" className="input input-bordered" required/>
+                                </div>
+
+                                <p className='text-red-700'><small>{error}</small></p>
+
+                                <div className="form-control mt-6">
+                                <button className="btn btn-success text-rose-900">Signup</button>
+                                </div>
+
+                                <p><small><span className='pr-2 font-bold'>Already have an account?</span><Link to='/login' className='text-pink-500 font-bold'>log in now</Link></small></p>
+                            </form>
+                        </div>
                     </div>
-
-                    <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Photo URL</span>
-                    </label>
-                    <input name='photoURL' type="text" placeholder="photo url" className="input input-bordered" required/>
-                    </div>
-                    <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Email</span>
-                    </label>
-                    <input name='email' type="email" placeholder="email" className="input input-bordered" required/>
-                    </div>
-                    <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Password</span>
-                    </label>
-                    <input  name='password' type="password" placeholder="password" className="input input-bordered" required/>
-                    </div>
-
-                    <p className='text-red-700'><small>{error}</small></p>
-
-                    <div className="form-control mt-6">
-                    <button className="btn btn-success text-rose-900">Signup</button>
-                    </div>
-
-                    <button onClick={handlePopUpSignIn} className="mt-2 btn btn-outline btn-secondary  mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
-
-                    <button onClick={handlePopUpSignIn} className="mt-2 btn btn-outline btn-primary  mb-3 bg-grey-400"><FaGithub></FaGithub><span className='ml-2'>Github Sign In</span></button>
-
-                    <p><small><span className='pr-2 font-bold'>Already have an account?</span><Link to='/login' className='text-pink-500 font-bold'>log in now</Link></small></p>
-                </form>
-                </div>
             </div>
-        </div>
+
+
+            <div className='flex justify-center'>
+            <button onClick={handlePopUpSignInGoogle} className="mt-2 btn btn-outline btn-secondary buttonSign mb-3 bg-grey-400"><FaGoogle></FaGoogle><span className='ml-2'>Google Sign In</span></button>
+            </div>
+
+            <div className='flex justify-center'>
+            <button onClick={handlePopUpSignInGitHub} className="mt-2 btn btn-outline btn-primary buttonSign mb-3 bg-grey-400"><FaGithub></FaGithub><span className='ml-2'>Github Sign In</span></button>
+            </div>
+    </div>
+        
     );
 };
 
