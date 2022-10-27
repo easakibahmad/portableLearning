@@ -1,14 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import navlogo from '../assets/nav-logo.jpg';
-import { CgDarkMode } from 'react-icons/cg';
+import { MdOutlineToggleOff, MdOutlineToggleOn } from 'react-icons/md';
 import { AuthContext } from '../context/AuthProvider';
 import SharedLeftSide from './SharedLeftSide';
+import { IconContext } from "react-icons";
+
 
 
 const Navbar = () => {
 
+    let [changeTheme, setChangeTheme] = useState(true);
+
     const {user, logOut} = useContext(AuthContext)
+
+
+    const handleChangeTheme = () => {
+        return setChangeTheme(!changeTheme);
+      };
 
 
     const navigate = useNavigate()
@@ -92,7 +101,18 @@ const Navbar = () => {
                     </>
                 }
                 </>
-                    <div data-tip="change theme" className='tooltip mx-4'><Link><CgDarkMode></CgDarkMode></Link></div>
+                    <div onClick={() => handleChangeTheme()}  data-tip="change theme" className='tooltip mx-4'>
+                    {
+                       changeTheme ? 
+                       <IconContext.Provider value={{ color: "#DFFF00", }}>
+                       <Link><MdOutlineToggleOff></MdOutlineToggleOff></Link>
+                       </IconContext.Provider>
+                       
+                       :
+                       <Link><MdOutlineToggleOn></MdOutlineToggleOn></Link>
+                    }
+                    
+                    </div>
                     <div className='profile-div'>
                         {
                             user?.uid &&

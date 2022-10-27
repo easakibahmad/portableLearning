@@ -5,6 +5,15 @@ PORTABLE LEARNING
 # Live Website Link
 
 https://portable-learning.web.app/
+
+# Framework and Library
+I have used some popular features in my app
+* Firebase
+* Tailwind css
+* DaisyUI
+* React to pdf node package
+* React icons
+* React hooks
 # Creating some route
 
 I included react router dom by installing.
